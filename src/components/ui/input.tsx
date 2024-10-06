@@ -5,14 +5,14 @@ import { Eye, EyeOff } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const inputVariants = cva(
-  "flex w-full rounded-[10px] border border-input bg-background px-4 py-2 text-sm text-black ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full rounded-[10px] border border-input text-black bg-background px-4 py-2 text-sm ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-white text-primary-foreground",
+        default: "bg-white text-black",
         destructive: "bg-red-50 text-red-600",
         outline: "border border-gray-300 bg-transparent hover:bg-gray-100",
-        secondary: "bg-gray-100 text-secondary-foreground hover:bg-gray-200",
+        secondary: "bg-gray-100 text-black hover:bg-gray-200",
         ghost: "bg-transparent text-primary hover:bg-gray-100",
         link: "text-primary underline-offset-4 hover:underline",
         blur: "bg-white/60 backdrop-blur-sm",
@@ -22,6 +22,9 @@ const inputVariants = cva(
         sm: "h-8 rounded-[8px] px-4 py-2",
         lg: "h-12 rounded-[12px] px-6 py-4",
         icon: "h-10 w-10",
+      },
+      isPasswordType: {
+        true: "pr-10",
       },
     },
     defaultVariants: {
@@ -46,10 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="relative">
         <input
           type={isPasswordType ? (showPassword ? 'text' : 'password') : type}
-          className={cn(
-            inputVariants({ variant, inputSize, className }),
-            isPasswordType && "pr-10"
-          )}
+          className={cn(inputVariants({ variant, inputSize, className, isPasswordType }))}
           ref={ref}
           {...props}
         />

@@ -48,7 +48,7 @@ export default function LoginForm() {
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
-                                <Input placeholder="Username" {...field} />
+                                <Input placeholder="Username" variant="blur" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -61,7 +61,7 @@ export default function LoginForm() {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input placeholder="Password" type="password" {...field} />
+                                <Input placeholder="Password" type="password" variant="blur" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
