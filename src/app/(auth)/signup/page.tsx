@@ -11,7 +11,7 @@ export const metaData: Metadata = {
 export default async function Page() {
     return (
         <main className="flex h-screen items-center justify-center p-8 bg-white/10">
-            <div className="flex h-full max-h-[40rem] w-full max-w-[64rem] overflow-hidden backdrop-blur-sm bg-white/40 shadow-2xl rounded-xl">
+            <div className="flex h-full max-h-[40rem] w-full max-w-[64rem] overflow-hidden backdrop-blur-sm bg-white/40 border rounded-2xl">
                 <div className="w-full space-y-10 overflow-y-auto p-10 md:w-1/2">
                     <div className="space-y-1 text-center">
                         <h1 className="text-3xl font-bold">Sign Up</h1>

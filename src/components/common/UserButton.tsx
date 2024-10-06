@@ -1,13 +1,24 @@
 "use client";
 
 import { useSession } from "@/app/(main)/SessionProvider";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import UserAvatar from "./UserAvatar";
-import { Check, LogOut, Monitor, Moon, Settings, Sun, UserIcon } from "lucide-react";
-import Link from "next/link";
-import { logout } from "@/app/(auth)/action";
 import { cn } from "@/lib/utils";
+import { Check, LogOutIcon, Monitor, Moon, Sun, UserIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import UserAvatar from "./UserAvatar";
+import { logout } from "@/app/(auth)/action";
 
 interface UserButtonProps {
     className?: string;
@@ -15,19 +26,18 @@ interface UserButtonProps {
 
 export default function UserButton({ className }: UserButtonProps) {
     const { user } = useSession();
+
     const { theme, setTheme } = useTheme();
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <button className={cn("flex-none rounded-full", className)}>
-                    <UserAvatar url={user.avatarUrl} size={36} />
+                    <UserAvatar url={user.avatarUrl} size={40} />
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <DropdownMenuLabel>
-                    Logged in as @{user.username}
-                </DropdownMenuLabel>
+                <DropdownMenuLabel>Logged in as @{user.username}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <Link href={`/users/${user.username}`}>
                     <DropdownMenuItem>
@@ -41,39 +51,35 @@ export default function UserButton({ className }: UserButtonProps) {
                         Theme
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
-                        <DropdownMenuContent>
+                        <DropdownMenuSubContent>
                             <DropdownMenuItem onClick={() => setTheme("system")}>
                                 <Monitor className="mr-2 size-4" />
-                                System
-                                {theme === "system" && <Check className="ml-auto size-3" />}
+                                System default
+                                {theme === "system" && <Check className="ms-2 size-4" />}
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => setTheme("light")}>
                                 <Sun className="mr-2 size-4" />
                                 Light
-                                {theme === "light" && <Check className="ml-auto size-3" />}
+                                {theme === "light" && <Check className="ms-2 size-4" />}
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => setTheme("dark")}>
                                 <Moon className="mr-2 size-4" />
                                 Dark
-                                {theme === "dark" && <Check className="ml-auto size-3" />}
+                                {theme === "dark" && <Check className="ms-2 size-4" />}
                             </DropdownMenuItem>
-                        </DropdownMenuContent>
+                        </DropdownMenuSubContent>
                     </DropdownMenuPortal>
                 </DropdownMenuSub>
-                <DropdownMenuItem>
-                    <Settings className="mr-2 size-4" />
-                    Settings
-                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                     onClick={() => {
                         logout();
                     }}
                 >
-                    <LogOut className="mr-2 size-4" />
+                    <LogOutIcon className="mr-2 size-4" />
                     Logout
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
-    )
+    );
 }
