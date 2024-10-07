@@ -19,7 +19,7 @@ export default function SearchField() {
     return (
         <form onSubmit={handleSearch} method="GET" action="/search">
             <div className="relative">
-                <Input name="query" placeholder="Search" variant="secondary" />
+                <Input name="query" placeholder="Search" />
                 <SearchIcon className="absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             </div>
         </form>
