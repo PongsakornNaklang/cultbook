@@ -17,7 +17,7 @@ export default function UserAvatar({ url, size, className }: UserAvatarProps) {
             alt="User avatar"
             width={size ?? 16}
             height={size ?? 16}
-            className={cn("aspect-square h-fit flex-none rounded-full bg-secondary object-cover", className)}
+            className={cn("aspect-square h-fit flex-none rounded-full bg-background text-foreground object-cover outline-none", className)}
         />
     );
 }

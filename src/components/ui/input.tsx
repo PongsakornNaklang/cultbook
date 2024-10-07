@@ -5,17 +5,17 @@ import { Eye, EyeOff } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const inputVariants = cva(
-  "flex w-full rounded-[10px] border border-input text-black bg-background px-4 py-2 text-sm ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full rounded-[10px] border border-input text-foreground bg-background px-4 py-2 text-sm ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 outline-none",
   {
     variants: {
       variant: {
-        default: "bg-white text-black",
+        default: "bg-background text-foreground",
         destructive: "bg-red-50 text-red-600",
         outline: "border border-gray-300 bg-transparent hover:bg-gray-100",
         secondary: "bg-gray-100 text-black hover:bg-gray-200",
         ghost: "bg-transparent text-primary hover:bg-gray-100",
         link: "text-primary underline-offset-4 hover:underline",
-        blur: "bg-white/60 backdrop-blur-sm",
+        blur: "bg-background/60 backdrop-blur-sm",
       },
       inputSize: {
         default: "h-10 px-4 py-3",

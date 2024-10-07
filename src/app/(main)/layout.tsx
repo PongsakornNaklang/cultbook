@@ -14,10 +14,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
             <div className="flex min-h-screen flex-col">
                 <Navbar />
                 <div className="mx-auto flex w-full max-w-7xl grow gap-5 p-5">
-                    <MenuBar className="sticky top-[5.25rem] hidden h-fit flex-none space-y-3 rounded-2xl border px-3 py-5 sm:block lg:px-5 xl:w-80" />
+                    <MenuBar className="sticky top-[5.25rem] hidden h-fit flex-none space-y-3 rounded-2xl border px-3 py-5 sm:block lg:px-5 xl:w-80 bg-background" />
                     {children}
                 </div>
-                <MenuBar className="sticky bottom-0 flex w-full justify-center gap-5 border-t p-3 sm:hidden" />
+                <MenuBar className="sticky bottom-0 flex w-full justify-center gap-5 border-t p-3 sm:hidden bg-background" />
             </div>
         </SessionProvider>
     );
